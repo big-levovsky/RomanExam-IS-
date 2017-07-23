@@ -1,0 +1,89 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    color: green;
+    text-align: center;
+}
+
+#game {
+    width:613px;
+    border: 1px solid black;
+    margin: 0px auto;
+    padding: 30px;
+}
+
+#box {
+    display: inline-block;
+    width:400px;
+    height:400px;
+    border: 2px solid black;
+    float: left;
+}
+
+#ball {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: blue;
+    position: relative;
+    top: 152px;
+    left: 152px;
+}
+
+#controls {
+    display: inline-block;
+    width:200px;
+    height:400px;
+    border: 2px solid black;
+    float: left;
+    margin-left: 5px;
+}
+
+button {
+    /*display: inline-block;*/
+    width: 30px;
+    height: 30px;
+}
+
+button#up {
+    position: relative;
+    top: 161px;
+    left: 84px;
+}
+
+button#right {
+    position: relative;
+    top: 194px;
+    left: 91px;
+}
+
+button#down {
+    position: relative;
+    top: 227px;
+    left: 16px;
+}
+
+button#left {
+    position: relative;
+    top: 194px;
+    left: -59px;
+}
+
+button#reset {
+    width: 50px;
+    font-size: medium;
+    font-weight: bold;
+    position: relative;
+    top: 272px;
+    left: -60px;
+}
+
+
+.clear {
+    clear: both;
+}
+
+

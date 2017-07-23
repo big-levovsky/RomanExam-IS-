@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>IronSource Exam</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+
+        <h1>IronSource Exam - Roman Lvovsky</h1>
+
+        <div id="game">
+            <div id="box">
+                <div id="ball"></div>
+            </div>
+
+            <div id="controls">
+                <button id="up"> ^ </button>
+                <button id="right"> > </button>
+                <button id="down"> v </button>
+                <button id="left"> < </button>
+                <button id="reset">Reset</button>
+            </div>
+
+            <div class="clear"></div>
+
+        </div>
+
+        <script>
+            var ball = document.querySelector('#ball');
+            var style = window.getComputedStyle(ball);
+            var ballTopVal = parseInt(style.getPropertyValue('top'));
+            var ballLeftVal = parseInt(style.getPropertyValue('left'));
+            console.log("Initial State: " + ballTopVal + " " + ballLeftVal);
+
+            var topState = ballTopVal;
+            var leftState = ballLeftVal;
+
+            var moveInPx = 10;
+
+            /** Up Button*/
+            var buttonUp = document.querySelector('button#up');
+            buttonUp.addEventListener('click', function () {
+                if (topState <= moveInPx) {
+                    ball.style.backgroundColor = "red";
+                    alert('You tried to get out of the borders!!!');
+                    return;
+                } else {
+                    topState -= moveInPx;
+                    var topInPx = topState.toString() + 'px';
+                    ball.style.top = topInPx;
+                    console.log("Moved up (top property): " +  topInPx);
+                }
+            });
+
+            /**Right Button*/
+            var buttonRight = document.querySelector('button#right');
+            buttonRight.addEventListener('click', function () {
+                if (leftState >= 302) {
+                    ball.style.backgroundColor = "red";
+                    alert('You tried to get out of the borders!!!');
+                    return;
+                } else {
+                    leftState += moveInPx;
+                    var rightInPx = leftState.toString() + 'px';
+                    ball.style.left = rightInPx;
+                    console.log("Moved right (left property): " +  rightInPx);
+                }
+
+            });
+
+            /**Down Button*/
+            var buttonDown = document.querySelector('button#down');
+            buttonDown.addEventListener('click', function () {
+                if(topState >= 302) {
+                    ball.style.backgroundColor = "red";
+                    alert('You tried to get out of the borders!!!');
+                    return;
+                } else {
+                    topState += moveInPx;
+                    var downInPx = topState.toString() + 'px';
+                    ball.style.top = downInPx;
+                    console.log("Moved down (top property): " +  downInPx);
+                }
+            });
+
+            /**Left Button*/
+            var buttonLeft = document.querySelector('button#left');
+            buttonLeft.addEventListener('click', function () {
+                if(leftState <= moveInPx) {
+                    ball.style.backgroundColor = "red";
+                    alert('You tried to get out of the borders!!!');
+                    return;
+                } else {
+                    leftState -= moveInPx;
+                    var leftInPx = leftState.toString() + 'px';
+                    ball.style.left = leftInPx;
+                    console.log("Moved left (left property): " +  leftInPx);
+                }
+            });
+
+            /**Reset Button*/
+            var resetButton = document.querySelector('button#reset');
+            resetButton.addEventListener('click', function () {
+                topState = ballTopVal;
+                leftState = ballLeftVal;
+
+                var topInitial = ballTopVal.toString() + "px";
+                var leftInitial = ballLeftVal.toString() + "px";
+
+                ball.style.top = topInitial;
+                ball.style.left = leftInitial;
+                ball.style.backgroundColor = "blue";
+                console.log("Back to start: " + topInitial + " " + leftInitial);
+            });
+        </script>
+
+
+    </body>
+</html>
